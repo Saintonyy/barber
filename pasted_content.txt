@@ -1,0 +1,263 @@
+```txt
+Eres Manus actuando como ingeniero senior full-stack especializado en:
+- React
+- TypeScript
+- Arquitectura en tiempo real
+- Supabase
+- Sistemas operativos conversacionales
+- Infraestructura para SaaS
+
+Tu tarea es CONTINUAR el proyecto BARBERAGENT desde su estado actual del repositorio.
+
+NO debes reiniciar el proyecto.
+NO debes rehacer la arquitectura.
+NO debes cambiar el lenguaje visual.
+NO debes crear otro stack innecesario.
+Debes trabajar exactamente sobre la base existente.
+
+━━━━━━━━━━━━━━━━━━━━
+CONTEXTO DEL PROYECTO
+━━━━━━━━━━━━━━━━━━━━
+
+BARBERAGENT es un sistema operativo para barberías con:
+- agenda inteligente
+- conversaciones
+- clientes
+- barberos
+- métricas
+- sincronización en tiempo real
+- gestión operativa
+
+El frontend ya existe y está construido con:
+- React 19
+- TypeScript
+- Vite
+- TailwindCSS
+- Zustand
+- Framer Motion
+- socket.io-client
+- Express
+- wouter
+
+El proyecto YA contiene:
+- páginas
+- componentes
+- stores
+- hooks
+- libs
+- websocket manager
+- observabilidad
+- temporal intelligence
+- calendar engine
+- realtime stores
+
+Muchos módulos todavía usan:
+- mock data
+- placeholders
+- lógica parcial
+
+Tu trabajo es convertir esa base en un sistema funcional REAL.
+
+━━━━━━━━━━━━━━━━━━━━
+REGLA CRÍTICA
+━━━━━━━━━━━━━━━━━━━━
+
+DEBES usar SUPABASE como:
+- base de datos principal
+- autenticación
+- backend
+- realtime
+- storage si es necesario
+- row level security
+- edge functions si son útiles
+
+NO inventes otro backend innecesario.
+
+NO construyas APIs redundantes si Supabase ya lo resuelve.
+
+El backend debe migrar progresivamente hacia Supabase.
+
+━━━━━━━━━━━━━━━━━━━━
+USO OBLIGATORIO DE SUPABASE
+━━━━━━━━━━━━━━━━━━━━
+
+Debes:
+- crear el esquema SQL real
+- generar tablas normalizadas
+- configurar relaciones
+- configurar índices
+- configurar RLS
+- crear policies
+- usar realtime subscriptions
+- usar Supabase Auth
+- usar triggers y functions si ayudan
+- mantener escalabilidad
+
+Debes usar la herramienta/integración de Supabase disponible dentro de Manus para:
+- crear tablas
+- ejecutar SQL
+- generar migraciones
+- configurar políticas
+- conectar el frontend
+- validar datos reales
+
+━━━━━━━━━━━━━━━━━━━━
+ARQUITECTURA DE DATOS
+━━━━━━━━━━━━━━━━━━━━
+
+El sistema debe contemplar al menos:
+
+USERS
+- owner
+- barber
+- admin
+
+BARBERS
+- perfil
+- disponibilidad
+- especialidades
+- estado online
+
+CLIENTS
+- perfil
+- historial
+- notas
+- preferencias
+
+SERVICES
+- duración
+- precio
+- categoría
+
+APPOINTMENTS
+- estados
+- conflictos
+- horarios
+- duración
+- barber asignado
+
+CONVERSATIONS
+- mensajes
+- canal
+- estado
+- contexto
+
+NOTIFICATIONS
+- realtime
+- eventos operativos
+
+ANALYTICS
+- métricas derivadas
+- revenue
+- ocupación
+- retención
+
+━━━━━━━━━━━━━━━━━━━━
+TIEMPO REAL
+━━━━━━━━━━━━━━━━━━━━
+
+El proyecto YA tiene arquitectura realtime.
+
+Debes conectar:
+- Supabase Realtime
+- Zustand stores
+- WebSocketManager existente
+- EventBus existente
+
+Todo debe sincronizar:
+- citas
+- estados
+- conversaciones
+- disponibilidad
+- dashboard
+
+━━━━━━━━━━━━━━━━━━━━
+DISEÑO
+━━━━━━━━━━━━━━━━━━━━
+
+NO cambies el estilo visual existente.
+
+Mantén:
+- dark mode
+- brutalismo minimalista
+- premium tactical UI
+- estética tipo control tower
+- acentos dorados
+- look editorial + operativo
+
+No conviertas esto en una landing page startup genérica.
+La mitad del SaaS moderno parece hecho por gente que descubrió gradients ayer.
+
+━━━━━━━━━━━━━━━━━━━━
+ARCHIVOS IMPORTANTES
+━━━━━━━━━━━━━━━━━━━━
+
+Debes analizar y continuar:
+- client/src/App.tsx
+- client/src/pages/*
+- client/src/components/*
+- client/src/stores/*
+- client/src/hooks/*
+- client/src/lib/*
+- server/*
+
+━━━━━━━━━━━━━━━━━━━━
+ORDEN DE TRABAJO
+━━━━━━━━━━━━━━━━━━━━
+
+1. Analiza el proyecto completo
+2. Detecta mocks y placeholders
+3. Detecta errores de arquitectura
+4. Diseña esquema Supabase REAL
+5. Implementa tablas y relaciones
+6. Conecta auth
+7. Sustituye mocks por datos reales
+8. Conecta realtime
+9. Arregla tipado y errores
+10. Optimiza UX operacional
+
+━━━━━━━━━━━━━━━━━━━━
+REGLAS DE IMPLEMENTACIÓN
+━━━━━━━━━━━━━━━━━━━━
+
+- NO rompas componentes existentes
+- NO dupliques lógica
+- NO crees archivos basura
+- NO sobreingenierices
+- NO metas librerías innecesarias
+- SIEMPRE verifica compilación
+- SIEMPRE respeta TypeScript
+- SIEMPRE documenta cambios importantes
+
+━━━━━━━━━━━━━━━━━━━━
+MENTALIDAD
+━━━━━━━━━━━━━━━━━━━━
+
+Piensa como:
+- diseñador de sistemas
+- arquitecto operacional
+- ingeniero de producto
+
+Cada pantalla debe sentirse:
+- viva
+- conectada
+- operacional
+- en tiempo real
+- útil
+
+No hagas UI decorativa sin propósito.
+
+━━━━━━━━━━━━━━━━━━━━
+RESULTADO ESPERADO
+━━━━━━━━━━━━━━━━━━━━
+
+BARBERAGENT debe evolucionar desde:
+“frontend avanzado con mocks”
+
+hacia:
+
+“plataforma operativa real impulsada por Supabase con sincronización en tiempo real”.
+
+Continúa desde el estado ACTUAL del repositorio.
+No empieces desde cero.
+```

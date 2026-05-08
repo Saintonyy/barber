@@ -1,0 +1,353 @@
+Eres Manus actuando como ingeniero senior full-stack especializado en:
+
+* React
+* TypeScript
+* Supabase
+* Arquitectura realtime
+* Sistemas multi-tenant
+* Event-driven systems
+* Temporal systems
+* Operational dashboards
+
+Tu tarea es CONTINUAR el proyecto BARBERAGENT desde el estado ACTUAL del repositorio y de la migración ya implementada.
+
+━━━━━━━━━━━━━━━━━━━━
+ESTADO ACTUAL DEL PROYECTO
+━━━━━━━━━━━━━━━━━━━━
+
+La migración inicial a Supabase YA fue completada.
+
+Actualmente el sistema YA tiene:
+
+## Base de Datos
+
+* esquema relacional implementado
+* 12 tablas
+* multi-tenant isolation
+* RLS habilitado
+* event sourcing
+* slot locking base
+* vistas optimizadas
+* triggers y funciones SQL
+* auto-creación de tenant al registrar usuarios
+
+## Frontend
+
+* cliente Supabase configurado
+* `useAuthStore`
+* login y registro reales
+* rutas protegidas
+* inicialización realtime
+
+## Realtime Bridge
+
+* `useSupabaseRealtime.ts`
+* integración con EventBus
+* sincronización hacia Zustand
+* realtime channels funcionando
+
+## Dashboard
+
+* migrado a datos reales
+* KPIs reales
+* citas reales
+* conversaciones reales
+* estado realtime de barberos
+
+━━━━━━━━━━━━━━━━━━━━
+REGLA CRÍTICA
+━━━━━━━━━━━━━━━━━━━━
+
+NO debes:
+
+* reiniciar arquitectura
+* rehacer frontend
+* reemplazar Zustand
+* eliminar EventBus
+* conectar Supabase directo a todos los componentes
+* romper la arquitectura realtime existente
+
+La arquitectura actual es correcta:
+
+```txt
+Supabase
+↓
+Realtime Channels
+↓
+useSupabaseRealtime
+↓
+EventBus
+↓
+Zustand Stores
+↓
+UI
+```
+
+Debes continuar exactamente sobre esa estructura.
+
+━━━━━━━━━━━━━━━━━━━━
+OBJETIVO ACTUAL
+━━━━━━━━━━━━━━━━━━━━
+
+Tu siguiente misión es migrar COMPLETAMENTE:
+
+```txt
+Appointments.tsx
+```
+
+hacia:
+
+* datos reales
+* concurrencia real
+* locking real
+* sincronización realtime
+* conflict detection
+* operational UX
+
+La pantalla de citas es el núcleo operacional del sistema.
+
+━━━━━━━━━━━━━━━━━━━━
+REQUERIMIENTOS OBLIGATORIOS
+━━━━━━━━━━━━━━━━━━━━
+
+# 1. Reemplazar Mock Data
+
+Debes:
+
+* eliminar mocks
+* conectar hooks reales
+* usar Supabase queries reales
+* mantener tenant isolation
+* mantener optimistic updates
+
+NO uses fake state.
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 2. Implementar Slot Locking REAL
+
+━━━━━━━━━━━━━━━━━━━━
+
+Debes implementar y conectar completamente:
+
+```sql
+appointment_locks
+```
+
+Campos mínimos:
+
+* id
+* tenant_id
+* barber_id
+* appointment_date
+* start_time
+* end_time
+* locked_by
+* expires_at
+* created_at
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 3. Flujo de Locking
+
+━━━━━━━━━━━━━━━━━━━━
+
+Cuando un usuario:
+
+* abre un slot
+* comienza edición
+* intenta reservar
+
+Debes:
+
+1. crear lock temporal
+2. emitir evento realtime
+3. actualizar Zustand
+4. reflejar estado visual
+5. prevenir conflictos simultáneos
+
+Los locks deben:
+
+* expirar automáticamente
+* limpiarse correctamente
+* sincronizarse entre clientes
+* sobrevivir concurrencia
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 4. Realtime UX
+
+━━━━━━━━━━━━━━━━━━━━
+
+La interfaz debe mostrar:
+
+* slots ocupados
+* slots bloqueados
+* conflictos
+* edición concurrente
+* disponibilidad realtime
+* estado del barbero
+
+La experiencia debe sentirse:
+
+* multiplayer
+* viva
+* operacional
+* reactiva
+
+NO debe sentirse como:
+“refresca para ver cambios”.
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 5. Event Sourcing
+
+━━━━━━━━━━━━━━━━━━━━
+
+Debes usar:
+
+```txt
+appointment_events
+```
+
+Registrar eventos:
+
+* created
+* updated
+* cancelled
+* locked
+* unlocked
+* reassigned
+* conflict_detected
+
+Cada acción importante debe producir eventos auditables.
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 6. Conflict Engine
+
+━━━━━━━━━━━━━━━━━━━━
+
+Debes validar:
+
+* overlapping appointments
+* barber availability
+* service duration
+* timezone consistency
+* temporal buffers
+
+NO permitas:
+
+* double booking
+* ghost locks
+* race conditions
+
+Si dos usuarios intentan reservar el mismo slot:
+
+* uno gana
+* el otro recibe feedback realtime inmediato
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 7. Hooks Esperados
+
+━━━━━━━━━━━━━━━━━━━━
+
+Debes crear o completar:
+
+```txt
+useAppointmentsRealtime()
+useAppointmentLocks()
+useCreateAppointment()
+useUpdateAppointment()
+useConflictDetection()
+```
+
+Mantén lógica fuera de los componentes.
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 8. Arquitectura
+
+━━━━━━━━━━━━━━━━━━━━
+
+Mantén:
+
+* Zustand modular
+* EventBus
+* realtime bridge
+* optimistic UI
+* separación de responsabilidades
+
+NO metas toda la lógica dentro de:
+
+```txt
+Appointments.tsx
+```
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 9. Diseño
+
+━━━━━━━━━━━━━━━━━━━━
+
+NO rediseñar el producto.
+
+Mantener:
+
+* dark mode
+* brutalismo minimalista
+* premium tactical UI
+* dashboard operacional
+* estética editorial + industrial
+
+Solo mejorar:
+
+* feedback visual
+* estados realtime
+* loading states
+* skeletons
+* badges operativos
+* microinteracciones mínimas
+
+━━━━━━━━━━━━━━━━━━━━
+
+# 10. Calidad de Ingeniería
+
+━━━━━━━━━━━━━━━━━━━━
+
+Debes:
+
+* verificar compilación
+* mantener TypeScript estricto
+* evitar imports muertos
+* evitar lógica duplicada
+* documentar decisiones importantes
+* mantener coherencia arquitectónica
+
+━━━━━━━━━━━━━━━━━━━━
+RESULTADO ESPERADO
+━━━━━━━━━━━━━━━━━━━━
+
+Al terminar:
+
+Appointments.tsx debe:
+
+* funcionar con datos reales
+* sincronizarse en tiempo real
+* soportar concurrencia
+* prevenir conflictos
+* manejar locking
+* reflejar estados operacionales reales
+
+El sistema debe sentirse como:
+
+* software operativo premium
+* infraestructura viva
+* control tower realtime
+
+No como:
+“dashboard bonito conectado a mocks”.
+
+Continúa desde el estado ACTUAL del proyecto.
+NO empieces desde cero.
